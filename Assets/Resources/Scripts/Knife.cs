@@ -8,31 +8,27 @@ public class Knife : MonoBehaviour
     [SerializeField] private Rigidbody2D knifeRigidbody;
     private bool attachedToWood;
 
+    private void Awake()
+    {
+        EventManager.KnifeHitTarget.AddListener(HitTarget);
+    }
+
     private void OnTriggerEnter2D(Collider2D collisionObject)
     {
-        if (collisionObject.tag == "Wood")
+        if (collisionObject.GetComponent<Knife>()?.attachedToWood == true)
         {
-            knifeRigidbody.velocity = Vector2.zero;
-            transform.parent = collisionObject.transform;
-            attachedToWood = true;
-        }
-
-        if (collisionObject.tag == "Knife")
-        {
-            if (collisionObject.GetComponent<Knife>().attachedToWood == true)
-            {
-                knifeRigidbody.velocity = Vector2.zero;
-                knifeRigidbody.gravityScale = 1;
-                
-                Debug.LogError("Вы проиграли");
-            }
-            
-        }
-
-        if (collisionObject.tag == "BonusItem")
-        {
-            Destroy(collisionObject.gameObject);
-        }
+            EventManager.SendKnifeHitLooseZone();
+            knifeRigidbody.velocity = Vector2.zero;           
+            knifeRigidbody.gravityScale = 3;            
+        }        
     }
-    
+
+    private void HitTarget(GameObject gameObject)
+    {
+        knifeRigidbody.velocity = Vector2.zero;
+        transform.parent = gameObject.transform;
+        attachedToWood = true;
+
+    }
+
 }
