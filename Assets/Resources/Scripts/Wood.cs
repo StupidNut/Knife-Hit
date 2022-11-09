@@ -14,6 +14,6 @@ public class Wood : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collisionObject)
     {
-        EventManager.SendKnifeHitTarget(this.gameObject);
+        EventManager.SendKnifeHitTarget(this.gameObject); //Передаем Wood в качестве объекта
     }
 }

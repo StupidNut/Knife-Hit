@@ -7,7 +7,7 @@ using System;
 public class EventManager : MonoBehaviour
 {
     public static UnityEvent KnifeHitLooseZone = new UnityEvent();
-    public static UnityEvent KnifeHitTarget = new UnityEvent();
+    public static UnityEvent<GameObject> KnifeHitTarget = new UnityEvent<GameObject>();
     public static UnityEvent KnifeHitBonusZone = new UnityEvent();
 
     public static void SendKnifeHitLooseZone()
@@ -20,8 +20,8 @@ public class EventManager : MonoBehaviour
         KnifeHitBonusZone?.Invoke();
     }
 
-    public static void SendKnifeHitTarget(GameObject target)
+    public static void SendKnifeHitTarget(GameObject target) // получает Wood  в качестве объекта
     {
-        KnifeHitTarget?.Invoke();
+        KnifeHitTarget?.Invoke(target);
     }
 }

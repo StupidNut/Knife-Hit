@@ -10,7 +10,7 @@ public class Knife : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.KnifeHitTarget.AddListener(HitTarget);
+        EventManager.KnifeHitTarget.AddListener(HitTarget); // получает обект Wood при подписывании на событие и передает Wood  в метод 
     }
 
     private void OnTriggerEnter2D(Collider2D collisionObject)
@@ -26,7 +26,7 @@ public class Knife : MonoBehaviour
     private void HitTarget(GameObject gameObject)
     {
         knifeRigidbody.velocity = Vector2.zero;
-        transform.parent = gameObject.transform;
+        this.knifeRigidbody.transform.parent = gameObject.transform; // делает объект knife дочерним к объекту Wood
         attachedToWood = true;
 
     }
