@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -6,15 +5,15 @@ using UnityEngine;
 public class MonoPool<T> where T : MonoBehaviour
 {
     [SerializeField] private T objectPrefab { get; }
-    public bool autoExpand { get; set; }
     [SerializeField] Transform objectContainer { get; }
+    public bool autoExpand { get; set; }
     private List<T> objectPool;
 
     [SerializeField] private int maxObjectCount;
     
     void Start()
     {
-        //CreateStartKnife();
+        
     }
 
     public MonoPool(T Prefab, int count, Transform Container)

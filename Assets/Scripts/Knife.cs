@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Knife : MonoBehaviour
@@ -8,16 +6,7 @@ public class Knife : MonoBehaviour
     [SerializeField] private Rigidbody2D knifeRigidbody;
     private bool attachedToWood;
 
-    private void Awake()
-    {
-       
-    }
-
-    private void Start()
-    {
-        
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D collisionObject)
     {
         if (collisionObject.GetComponent<Knife>()?.attachedToWood == true)
