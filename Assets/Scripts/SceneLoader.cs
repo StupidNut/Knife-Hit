@@ -7,7 +7,7 @@ public class SceneLoader : MonoBehaviour
     
     void Awake()
     {
-        EventManager.KnifeHitLooseZone.AddListener(EndGame);
+        //EventManager.KnifeHitLooseZone.AddListener(EndGame);
     }
         
     void EndGame()
