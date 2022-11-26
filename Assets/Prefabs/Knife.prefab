@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2498940616802669725}
   - component: {fileID: 2927476491392886865}
   - component: {fileID: -1272661639643790763}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Knife
   m_TagString: Knife
   m_Icon: {fileID: 0}
@@ -145,3 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knifeRigidbody: {fileID: -2498940616802669725}
+  knifeMask:
+    serializedVersion: 2
+    m_Bits: 128
+  attachedToWood: 0
