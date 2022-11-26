@@ -22,9 +22,11 @@ public class Wood : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collisionObject)
     {
-        if (collisionObject.gameObject.layer == (collisionObject.gameObject.layer | ( 1 << mainTargetMask))) //LayerMask.NameToLayer("MainTarget") ) // 7 - KnifeMask layer ((layerMask.value & (1 << collider.transform.gameObject.layer)) > 0)
+        if (collisionObject.gameObject.layer == (collisionObject.gameObject.layer | ( 1 << mainTargetMask))) 
         {
-            HitMainTarget?.Invoke(woodColaider);           
+            collisionObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            collisionObject.transform.parent = transform;
+            HitMainTarget?.Invoke(woodColaider);
         }
 
     }
